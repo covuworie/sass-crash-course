@@ -1,0 +1,19 @@
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+// Set text color based on background
+@function set-text-color($background-color) {
+  @if (lightness($background-color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Set background and text color
+@mixin set-background-and-text-color($background-color) {
+  background-color: $background-color;
+  color: set-text-color($background-color);
+}
